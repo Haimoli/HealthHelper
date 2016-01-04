@@ -54,8 +54,6 @@ public class DeviceScanActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActionBar().setTitle(R.string.title_devices);//需要需改
-        //System.out.println("1111111111111111");
         mHandler = new Handler();
 
         // Use this check to determine whether BLE is supported on the device.  Then you can

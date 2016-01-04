@@ -16,9 +16,11 @@
 
 package com.xiangma.bluetooth.le;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-import javax.security.auth.PrivateCredentialPermission;
+import java.util.Calendar;
+import java.util.Date;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -27,18 +29,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.xiangma.dbmanager.DBH;
 
 /**
  * For a given BLE device, this Activity provides the user interface to connect,
@@ -46,7 +51,7 @@ import android.widget.Toast;
  * device. The Activity communicates with {@code BluetoothLeService}, which in
  * turn interacts with the Bluetooth LE API.
  */
-public class DeviceControlActivity extends Activity {
+public class DeviceControlActivity extends Activity implements OnClickListener{
 	private final static String TAG = DeviceControlActivity.class
 			.getSimpleName();
 
@@ -57,21 +62,30 @@ public class DeviceControlActivity extends Activity {
 	//private ListView mConversationView;
 	//private Button mSendButton;
 
-	//private TextView mConnectionState;
+	private TextView mConnectionState;
 	//private TextView tempTextView;
 	private TextView DevConStatusTextView;
 	private TextView DevPowerTextView;
 	private TextView HealthStatusTextView;
 	private TextView TempTextView;
 	private TextView PulseTextView;
-	private Button LightOffButton;
-	private Button SettingButton;
-	private Button HistoryButton;
-	private Button CallhelpButton;
+	private TextView battery_status;//电池电量
+	private ImageView LightOffButton;
+	private ImageView SettingButton;
+	private ImageView HistoryButton;
+	private ImageView CallhelpButton;
 	private String mDeviceName;
 	private String mDeviceAddress;
 	private BluetoothLeService mBluetoothLeService;//ble服务函数，用于处理得到的数据包
 	private int mRecvDataCount;
+	DBH db;
+	private Calendar c;
+	private String name;
+	Date date;
+	DateFormat df ;
+	private int count=0;
+	SmsManager smsManager;
+	private String phone_one,phone_two,phone_three;
 	
 	// Array adapter for the conversation thread
 	private ArrayAdapter<String> mConversationArrayAdapter;
@@ -128,6 +142,8 @@ public class DeviceControlActivity extends Activity {
 				//int i = 0;
 				//while ((i++<10) && (arrayList.size() > 0)) {//之前的代码
 				while ( arrayList.size() > 0) {
+					 c = Calendar.getInstance();
+					 int second = c.get(Calendar.SECOND);
 					byte[] data = arrayList.remove(0);//删除集合中第一个数据，即第一个存入的数据，并且将返回要删除的Byte[]。
 					String mData=new String(data);
 					if (data!= null) {
@@ -142,12 +158,28 @@ public class DeviceControlActivity extends Activity {
 						{
 							try
 							{
-								
 								String dateNewString=llString.substring(0, 8);
 								String[] Messages=dateNewString.split(",");
 								TempTextView.setText(Messages[1]);
 								PulseTextView.setText(Messages[0]);
-								System.out.println("数据集合"+new String(dateNewString));
+								 if(second==10){
+									 date=new Date();
+									 df = new SimpleDateFormat("yyyy/MM/dd HH：mm：ss");
+									 db.insert(name, Messages[1], Messages[0], df.format(date));
+									 if(Float.parseFloat(Messages[1])>42||Float.parseFloat(Messages[1])<25){
+										 
+										 count++;
+									 }
+									 
+									 if(count==10){
+										String content="";
+										 smsManager=SmsManager.getDefault();
+										 smsManager.sendTextMessage(phone_one,null, content, null, null);
+										 smsManager.sendTextMessage(phone_two,null, content, null, null);
+										 smsManager.sendTextMessage(phone_three,null, content, null, null);
+									 }
+								 }
+								
 								
 							} catch (Exception e)
 							{
@@ -211,8 +243,13 @@ public class DeviceControlActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.chat_layout);
-
+		setContentView(R.layout.activity_control);
+		SharedPreferences sharedPreferencesVip = getSharedPreferences("VipInfo", Activity.MODE_PRIVATE);
+		name=sharedPreferencesVip.getString("user_name", "");
+		phone_one=sharedPreferencesVip.getString("user_connectone", "");
+		phone_two=sharedPreferencesVip.getString("user_connecttwo", "");
+		phone_three=sharedPreferencesVip.getString("user_connectthree", "");
+		db=new DBH(this);
 		 Intent intent = getIntent();
 		mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
 		mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
@@ -220,6 +257,14 @@ public class DeviceControlActivity extends Activity {
 		// Sets up UI references.
 		TempTextView=(TextView)findViewById(R.id.temperature);
 		PulseTextView=(TextView)findViewById(R.id.pulse);
+		battery_status=(TextView)findViewById(R.id.battery_status);
+		mConnectionState=(TextView)findViewById(R.id.status);
+		CallhelpButton=(ImageView)findViewById(R.id.call_help);
+		SettingButton=(ImageView)findViewById(R.id.setting);
+		HistoryButton=(ImageView)findViewById(R.id.datalist);
+		HistoryButton.setOnClickListener(this);
+		CallhelpButton.setOnClickListener(this);
+		SettingButton.setOnClickListener(this);
 		// Initialize the array adapter for the conversation thread
 		//mConversationArrayAdapter = new ArrayAdapter<String>(this,
 				//R.layout.message);//修改
@@ -233,7 +278,7 @@ public class DeviceControlActivity extends Activity {
 
 		// Initialize the send button with a listener that for click events
 		//mSendButton = (Button) findViewById(R.id.button_send);
-		LightOffButton = (Button) findViewById(R.id.light_off);
+		LightOffButton = (ImageView) findViewById(R.id.light_off);
 		LightOffButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// Send a message using content of the edit text widget
@@ -279,11 +324,11 @@ public class DeviceControlActivity extends Activity {
 		getMenuInflater().inflate(R.menu.gatt_services, menu);
 		if ((mBluetoothLeService != null)
 				&& (mBluetoothLeService.getState() == BluetoothLeService.STATE_CONNECTED)) {
-			menu.findItem(R.id.menu_connect).setVisible(false);
-			menu.findItem(R.id.menu_disconnect).setVisible(true);
+			
+			mConnectionState.setText("已连接");
+			
 		} else {
-			menu.findItem(R.id.menu_connect).setVisible(true);
-			menu.findItem(R.id.menu_disconnect).setVisible(false);
+			mConnectionState.setText("未连接");
 		}
 		return true;
 	}
@@ -321,5 +366,29 @@ public class DeviceControlActivity extends Activity {
 				.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
 		intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
 		return intentFilter;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		switch (arg0.getId()) {
+		case R.id.datalist:
+			
+			Intent intent=new Intent();
+			intent.setClass(this, DataCollectionActivity.class);
+			startActivity(intent);
+			break;
+			
+		case R.id.setting:
+
+			Intent intent_set=new Intent();
+			intent_set.setClass(this, MyCenterActivtiy.class);
+			startActivity(intent_set);
+			break;
+
+		default:
+			break;
+		}
 	}
 }

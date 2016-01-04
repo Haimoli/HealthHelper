@@ -35,4 +35,31 @@
     <string name="menu_stop">Stop</string>
     <string name="send">Send Data</string>
     <string name="not_connected">No Connection</string>
+    
+         <string name="pull_to_refresh">下拉刷新</string>
+    <string name="release_to_refresh">释放立即刷新</string>
+    <string name="refreshing">正在刷新...</string>
+    <string name="refresh_succeed">刷新成功</string>
+    <string name="refresh_fail">刷新失败</string>
+    <string name="pullup_to_load">上拉加载更多</string>
+    <string name="release_to_load">释放立即加载</string>
+    <string name="loading">正在加载...</string>
+    <string name="load_succeed">加载成功</string>
+     <string name="data_none">暂无更多数据</string>
+    <string name="load_fail">加载失败</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="my_comment">我的评价</string>
+    <string name="my_message">我的消息</string>
+    <string name="my_receipt">发票管理</string>
+    <string name="my_problem">常见问题</string>
+    <string name="my_setting">设置</string>
+    <string name="my_unsetting">未设置</string>
+    <string name="my_nickname">昵称</string>
+    <string name="my_sex">性别</string>
+    <string name="my_city">生日</string>
+    <string name="my_unsex">未知</string>
+    <string name="my_wx">微信</string>
+    <string name="my_qq">QQ</string>
+    <string name="my_wb">新浪微博</string>
+    <string name="my_unbundle">未绑定</string>
 </resources>

@@ -8,79 +8,401 @@
 package com.xiangma.bluetooth.le;
 
 public final class R {
+    public static final class anim {
+        public static final int setting_push_bottom_in=0x7f040000;
+        public static final int setting_push_bottom_out=0x7f040001;
+    }
     public static final class attr {
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int border_color=0x7f010001;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int border_width=0x7f010000;
+    }
+    public static final class color {
+        public static final int air=0x7f05002e;
+        public static final int bai=0x7f050031;
+        public static final int bai_normal=0x7f050030;
+        public static final int black=0x7f050001;
+        public static final int black_light=0x7f05000b;
+        public static final int blue=0x7f05002d;
+        public static final int bottom_color=0x7f050008;
+        public static final int btn_background=0x7f050014;
+        public static final int circle_blue_fill=0x7f05002a;
+        public static final int city_item_divider_color=0x7f050034;
+        public static final int city_item_letter_color=0x7f050033;
+        public static final int city_item_text_color=0x7f050035;
+        public static final int city_search_bg=0x7f050040;
+        public static final int click_gray=0x7f05001d;
+        public static final int color_background=0x7f050015;
+        public static final int color_hei=0x7f050027;
+        public static final int common_background=0x7f050039;
+        public static final int coupons_grey=0x7f050046;
+        public static final int deep_gray=0x7f050019;
+        public static final int dialog_blue=0x7f050029;
+        public static final int dialog_button_text_color=0x7f05003e;
+        public static final int dialog_content_color=0x7f05003c;
+        public static final int dialog_divider_color=0x7f05003d;
+        public static final int dialog_gray=0x7f050028;
+        public static final int dialog_title_color=0x7f05003b;
+        public static final int divide_color=0x7f050004;
+        public static final int divide_width=0x7f050042;
+        public static final int gray=0x7f05001e;
+        public static final int grey=0x7f050011;
+        public static final int group_top=0x7f050017;
+        public static final int half_transparent=0x7f050007;
+        public static final int huang_normal=0x7f050032;
+        public static final int hui=0x7f050016;
+        public static final int inner_divider=0x7f05001c;
+        public static final int left_list=0x7f050044;
+        public static final int light_gray=0x7f05001b;
+        public static final int line_gray=0x7f050018;
+        public static final int listcolor=0x7f050021;
+        public static final int login_back=0x7f050012;
+        public static final int main_color=0x7f050002;
+        public static final int main_menu_text=0x7f050003;
+        public static final int nomal_gray_bg=0x7f05001f;
+        public static final int nomal_text_hei=0x7f050020;
+        public static final int orange=0x7f05001a;
+        public static final int orangelight=0x7f050010;
+        public static final int pink=0x7f050013;
+        public static final int popupwindow_bg=0x7f050043;
+        public static final int possible_result_points=0x7f05000f;
+        public static final int province_line_border=0x7f05000c;
+        public static final int purple=0x7f05002c;
+        public static final int red=0x7f050024;
+        public static final int reflection_default_to=0x7f050041;
+        public static final int request_loading=0x7f05003a;
+        public static final int result_view=0x7f05000d;
+        public static final int setting=0x7f050047;
+        public static final int setting_red=0x7f050048;
+        public static final int shen_red=0x7f050026;
+        public static final int simple_red=0x7f050025;
+        public static final int tab_green=0x7f050022;
+        /**  公共的 
+         */
+        public static final int tab_main_text_1=0x7f050049;
+        public static final int tab_main_text_2=0x7f05004a;
+        public static final int tab_top_text_1=0x7f05004b;
+        public static final int tab_top_text_2=0x7f05004c;
+        public static final int tab_unpress=0x7f050006;
+        public static final int table_bg_color=0x7f050009;
+        public static final int table_text_color=0x7f05000a;
+        public static final int texi=0x7f05002f;
+        public static final int title_bg=0x7f050023;
+        public static final int top_list_text_color=0x7f05003f;
+        public static final int topbar_edge_color=0x7f050038;
+        public static final int transparent=0x7f050005;
+        public static final int transparent_blue=0x7f05002b;
+        public static final int uniform_black=0x7f050036;
+        public static final int uniform_light_gray=0x7f050037;
+        public static final int viewfinder_mask=0x7f05000e;
+        public static final int white=0x7f050000;
+        public static final int white_grey=0x7f050045;
+    }
+    public static final class dimen {
+        public static final int text_18px=0x7f060000;
     }
     public static final class drawable {
-        public static final int backg=0x7f020000;
-        public static final int help=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int lof=0x7f020003;
-        public static final int lon=0x7f020004;
-        public static final int matrix=0x7f020005;
-        public static final int plus=0x7f020006;
-        public static final int set=0x7f020007;
-        public static final int welcome=0x7f020008;
+        public static final int back=0x7f020000;
+        public static final int backg=0x7f020001;
+        public static final int background=0x7f020002;
+        public static final int circle_kuang=0x7f020003;
+        public static final int dialog_bottom_round=0x7f020004;
+        public static final int help=0x7f020005;
+        public static final int horizontal_side=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int img_checkmark=0x7f020008;
+        public static final int img_delete=0x7f020009;
+        public static final int img_detail=0x7f02000a;
+        public static final int lof=0x7f02000b;
+        public static final int lon=0x7f02000c;
+        public static final int matrix=0x7f02000d;
+        public static final int plus=0x7f02000e;
+        public static final int round_coupons_grey_getcode_empty=0x7f02000f;
+        public static final int round_stroke_shape_background=0x7f020010;
+        public static final int round_white_shape=0x7f020011;
+        public static final int set=0x7f020012;
+        public static final int user_man=0x7f020013;
+        public static final int user_sex_bm=0x7f020014;
+        public static final int user_women=0x7f020015;
+        public static final int welcome=0x7f020016;
+        public static final int wheel_bg=0x7f020017;
+        public static final int wheel_val=0x7f020018;
     }
     public static final class id {
-        public static final int bhealth=0x7f060003;
-        public static final int call_help=0x7f060012;
-        public static final int company=0x7f060001;
-        public static final int connection_status=0x7f060005;
-        public static final int datalist=0x7f060011;
-        public static final int device_address=0x7f060014;
-        public static final int device_name=0x7f060013;
-        public static final int dive_message=0x7f060004;
-        public static final int dive_prower=0x7f060007;
-        public static final int health_status=0x7f060002;
-        public static final int light_off=0x7f06000f;
-        public static final int menu_connect=0x7f060016;
-        public static final int menu_disconnect=0x7f060017;
-        public static final int menu_refresh=0x7f060015;
-        public static final int menu_scan=0x7f060018;
-        public static final int menu_stop=0x7f060019;
-        public static final int middle=0x7f06000a;
-        public static final int prower=0x7f060009;
-        public static final int prower_status=0x7f060008;
-        public static final int pulse=0x7f06000e;
-        public static final int setting=0x7f060010;
-        public static final int side1=0x7f06000b;
-        public static final int side2=0x7f06000d;
-        public static final int status=0x7f060006;
-        public static final int temperature=0x7f06000c;
-        public static final int top=0x7f060000;
+        public static final int  min=0x7f0a0058;
+        public static final int battery_status=0x7f0a0007;
+        public static final int bhealth=0x7f0a0008;
+        public static final int call_help=0x7f0a000d;
+        public static final int cancel=0x7f0a0047;
+        public static final int cancleBtn=0x7f0a0043;
+        public static final int choice=0x7f0a004f;
+        public static final int clipImageLayout=0x7f0a0040;
+        public static final int company=0x7f0a0036;
+        public static final int connection_status=0x7f0a0039;
+        public static final int datalist=0x7f0a000c;
+        public static final int day=0x7f0a0057;
+        public static final int device_address=0x7f0a0049;
+        public static final int device_name=0x7f0a0048;
+        public static final int dive_message=0x7f0a0038;
+        public static final int dive_prower=0x7f0a003a;
+        public static final int ed_connectone=0x7f0a0026;
+        public static final int ed_connectthree=0x7f0a0029;
+        public static final int ed_connecttwo=0x7f0a0027;
+        public static final int ed_devicename=0x7f0a0023;
+        public static final int ed_name=0x7f0a0022;
+        public static final int ed_nickname=0x7f0a0004;
+        public static final int health_status=0x7f0a0037;
+        public static final int hint=0x7f0a0044;
+        public static final int hint_description=0x7f0a0045;
+        public static final int img_arr=0x7f0a0012;
+        public static final int img_delete=0x7f0a0005;
+        public static final int img_female=0x7f0a002f;
+        public static final int img_male=0x7f0a002d;
+        public static final int layout=0x7f0a0041;
+        public static final int light_off=0x7f0a000b;
+        public static final int line_five=0x7f0a001f;
+        public static final int line_four=0x7f0a001c;
+        public static final int line_one=0x7f0a0015;
+        public static final int line_seven=0x7f0a002a;
+        public static final int line_six=0x7f0a0028;
+        public static final int line_three=0x7f0a0019;
+        public static final int line_two=0x7f0a0017;
+        public static final int ling_img=0x7f0a004a;
+        public static final int listview=0x7f0a0031;
+        public static final int lly_save=0x7f0a0003;
+        public static final int lly_title=0x7f0a0000;
+        public static final int ly_back=0x7f0a0001;
+        public static final int menu_connect=0x7f0a005b;
+        public static final int menu_disconnect=0x7f0a005c;
+        public static final int menu_refresh=0x7f0a005a;
+        public static final int menu_scan=0x7f0a005d;
+        public static final int menu_stop=0x7f0a005e;
+        public static final int middle=0x7f0a003d;
+        public static final int month=0x7f0a0056;
+        public static final int my_photo=0x7f0a000f;
+        public static final int myaccountone=0x7f0a0011;
+        public static final int myaccountthree=0x7f0a0018;
+        public static final int myaccounttwo=0x7f0a0016;
+        public static final int myphoto=0x7f0a0010;
+        public static final int ok=0x7f0a0046;
+        public static final int okBtn=0x7f0a0042;
+        public static final int popup_male=0x7f0a004c;
+        public static final int prower=0x7f0a003c;
+        public static final int prower_status=0x7f0a003b;
+        public static final int pulse=0x7f0a000a;
+        public static final int rel_female=0x7f0a002e;
+        public static final int rel_male=0x7f0a002c;
+        public static final int rel_phoneone=0x7f0a001a;
+        public static final int rel_phonethree=0x7f0a0020;
+        public static final int rel_phonetwo=0x7f0a001d;
+        public static final int rl_setting_female=0x7f0a004d;
+        public static final int rl_setting_male=0x7f0a004b;
+        public static final int sec=0x7f0a0059;
+        public static final int setting=0x7f0a000e;
+        public static final int side1=0x7f0a003e;
+        public static final int side2=0x7f0a003f;
+        public static final int status=0x7f0a0006;
+        public static final int takephoto=0x7f0a004e;
+        public static final int temperature=0x7f0a0009;
+        public static final int time=0x7f0a0050;
+        public static final int time_title=0x7f0a0054;
+        public static final int timeend=0x7f0a0051;
+        public static final int top=0x7f0a0035;
+        public static final int tv_birthday=0x7f0a0025;
+        public static final int tv_cancel=0x7f0a0052;
+        public static final int tv_clear=0x7f0a0030;
+        public static final int tv_maibo=0x7f0a0033;
+        public static final int tv_name=0x7f0a0014;
+        public static final int tv_ok=0x7f0a0053;
+        public static final int tv_one=0x7f0a001b;
+        public static final int tv_quit=0x7f0a0002;
+        public static final int tv_save=0x7f0a002b;
+        public static final int tv_set=0x7f0a0013;
+        public static final int tv_sex=0x7f0a0024;
+        public static final int tv_temper=0x7f0a0032;
+        public static final int tv_three=0x7f0a0021;
+        public static final int tv_time=0x7f0a0034;
+        public static final int tv_two=0x7f0a001e;
+        public static final int year=0x7f0a0055;
     }
     public static final class layout {
         public static final int actionbar_indeterminate_progress=0x7f030000;
-        public static final int chat_layout=0x7f030001;
-        public static final int listitem_device=0x7f030002;
-        public static final int message=0x7f030003;
-        public static final int welcome=0x7f030004;
+        public static final int activity_contectphone=0x7f030001;
+        public static final int activity_control=0x7f030002;
+        public static final int activity_myaccount=0x7f030003;
+        public static final int activity_mycenter=0x7f030004;
+        public static final int activity_nickname=0x7f030005;
+        public static final int activity_settingname=0x7f030006;
+        public static final int activity_sex=0x7f030007;
+        public static final int activity_test=0x7f030008;
+        public static final int activity_test_adapter_item=0x7f030009;
+        public static final int chat_layout=0x7f03000a;
+        public static final int crop_image_layout=0x7f03000b;
+        public static final int dialog_hint=0x7f03000c;
+        public static final int listitem_device=0x7f03000d;
+        public static final int merge_side_horizontal=0x7f03000e;
+        public static final int message=0x7f03000f;
+        public static final int oc_popup_setting_sex=0x7f030010;
+        public static final int photo_dialog=0x7f030011;
+        public static final int welcome=0x7f030012;
+        public static final int wheel_date_picker=0x7f030013;
+        public static final int wheel_date_picker_search=0x7f030014;
     }
     public static final class menu {
-        public static final int gatt_services=0x7f050000;
-        public static final int main=0x7f050001;
+        public static final int gatt_services=0x7f090000;
+        public static final int main=0x7f090001;
     }
     public static final class string {
-        public static final int app_name=0x7f040000;
-        public static final int ble_not_supported=0x7f040001;
-        public static final int connected=0x7f040005;
-        public static final int disconnected=0x7f040008;
-        public static final int error_bluetooth_not_supported=0x7f04000a;
-        public static final int health_state=0x7f040006;
-        public static final int label_company=0x7f040002;
-        public static final int label_device_address=0x7f040003;
-        public static final int label_state=0x7f040004;
+        public static final int app_name=0x7f070000;
+        public static final int ble_not_supported=0x7f070001;
+        public static final int connected=0x7f070005;
+        public static final int data_none=0x7f07001b;
+        public static final int disconnected=0x7f070008;
+        public static final int error_bluetooth_not_supported=0x7f07000a;
+        public static final int health_state=0x7f070006;
+        public static final int label_company=0x7f070002;
+        public static final int label_device_address=0x7f070003;
+        public static final int label_state=0x7f070004;
+        public static final int load_fail=0x7f07001c;
+        public static final int load_succeed=0x7f07001a;
+        public static final int loading=0x7f070019;
         /**  Menu items 
  Menu items 
          */
-        public static final int menu_connect=0x7f04000c;
-        public static final int menu_disconnect=0x7f04000d;
-        public static final int menu_scan=0x7f04000e;
-        public static final int menu_stop=0x7f04000f;
-        public static final int not_connected=0x7f040011;
-        public static final int prower_state=0x7f040007;
-        public static final int send=0x7f040010;
-        public static final int title_devices=0x7f040009;
-        public static final int unknown_device=0x7f04000b;
+        public static final int menu_connect=0x7f07000c;
+        public static final int menu_disconnect=0x7f07000d;
+        public static final int menu_scan=0x7f07000e;
+        public static final int menu_stop=0x7f07000f;
+        public static final int my_city=0x7f070026;
+        public static final int my_collection=0x7f07001d;
+        public static final int my_comment=0x7f07001e;
+        public static final int my_message=0x7f07001f;
+        public static final int my_nickname=0x7f070024;
+        public static final int my_problem=0x7f070021;
+        public static final int my_qq=0x7f070029;
+        public static final int my_receipt=0x7f070020;
+        public static final int my_setting=0x7f070022;
+        public static final int my_sex=0x7f070025;
+        public static final int my_unbundle=0x7f07002b;
+        public static final int my_unsetting=0x7f070023;
+        public static final int my_unsex=0x7f070027;
+        public static final int my_wb=0x7f07002a;
+        public static final int my_wx=0x7f070028;
+        public static final int not_connected=0x7f070011;
+        public static final int prower_state=0x7f070007;
+        public static final int pull_to_refresh=0x7f070012;
+        public static final int pullup_to_load=0x7f070017;
+        public static final int refresh_fail=0x7f070016;
+        public static final int refresh_succeed=0x7f070015;
+        public static final int refreshing=0x7f070014;
+        public static final int release_to_load=0x7f070018;
+        public static final int release_to_refresh=0x7f070013;
+        public static final int send=0x7f070010;
+        public static final int title_devices=0x7f070009;
+        public static final int unknown_device=0x7f07000b;
     }
+    public static final class style {
+        public static final int AnimBottomSetting=0x7f080004;
+        /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
+
+
+
+
+
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+
+
+
+
+
+
+
+        
+         */
+        public static final int AppBaseTheme=0x7f080000;
+        /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+         */
+        public static final int AppTheme=0x7f080001;
+        /**  自定义dialog样式、餐桌类型 
+         */
+        public static final int Dialog=0x7f080002;
+        /**  dialog加载框 
+         */
+        public static final int MyAlertDialog=0x7f080003;
+    }
+    public static final class styleable {
+        /** Attributes that can be used with a CircleImageView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CircleImageView_border_color com.xiangma.bluetooth.le:border_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleImageView_border_width com.xiangma.bluetooth.le:border_width}</code></td><td></td></tr>
+           </table>
+           @see #CircleImageView_border_color
+           @see #CircleImageView_border_width
+         */
+        public static final int[] CircleImageView = {
+            0x7f010000, 0x7f010001
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.xiangma.bluetooth.le.R.attr#border_color}
+          attribute's value can be found in the {@link #CircleImageView} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.xiangma.bluetooth.le:border_color
+        */
+        public static final int CircleImageView_border_color = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.xiangma.bluetooth.le.R.attr#border_width}
+          attribute's value can be found in the {@link #CircleImageView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.xiangma.bluetooth.le:border_width
+        */
+        public static final int CircleImageView_border_width = 0;
+    };
 }
